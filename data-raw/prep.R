@@ -21,6 +21,7 @@ raw %>%
     arrange(state_fips, usps, county_fips, year) %>%
     group_by(state_fips, usps, county_fips, year) %>%
     summarise(pop = pop %>% sum()) %>%
+    ungroup() %>%
     print() -> pop
 
 devtools::use_data(pop)
