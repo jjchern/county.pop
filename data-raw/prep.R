@@ -24,4 +24,4 @@ raw %>%
     ungroup() %>%
     print() -> pop
 
-devtools::use_data(pop)
+devtools::use_data(pop, overwrite = TRUE)
