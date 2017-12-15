@@ -1,0 +1,27 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# About `county.pop`
+
+The package stores U.S. annual county-level population estimates (1969-2016) from [SEER](https://seer.cancer.gov/popdata/download.html). The dataset is unbalanced: 
+certain counties do not have population estimates for all the years.
+
+# Installation
+
+```R
+# install.packages("devtools")
+devtools::install_github("jjchern/county.pop")
+# To uninstall the package, use:
+# remove.packages("county.pop")
+```
