@@ -1,6 +1,6 @@
 Package: county.pop
 Title: U.S. County-Level Population Estimates
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: person("JJ", "Chen", , "jiajia.chern@gmail.com", c("aut", "cre"))
 Description: The package stores U.S. annual county-level population estimates (1969-2016) from SEER.
 Depends: R (>= 3.4.2)
