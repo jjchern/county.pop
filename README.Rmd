@@ -25,6 +25,7 @@ certain counties do not have population estimates for all the years.
 ```R
 # install.packages("devtools")
 devtools::install_github("jjchern/county.pop")
+
 # To uninstall the package, use:
 # remove.packages("county.pop")
 ```

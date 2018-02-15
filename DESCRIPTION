@@ -1,8 +1,14 @@
 Package: county.pop
 Title: U.S. County-Level Population Estimates
 Version: 0.0.3
-Authors@R: person("JJ", "Chen", , "jiajia.chern@gmail.com", c("aut", "cre"))
-Description: The package stores U.S. annual county-level population estimates (1969-2016) from SEER.
+Authors@R: c(person("JJ", "Chen", email = "jiajia.chern@gmail.com", 
+             role = c("aut", "cre"),
+             comment = c(ORCID = "0000-0001-8482-8398")))
+Description: Stores U.S. annual county-level population estimates (1969-2016 
+    version and 1990-2016 version) by race and ethnicity, age groups, and 
+    gender. The data is prepared by the Surveillance, Epidemiology, and End 
+    Results program (SEER) of the National Cancer Institute (NCI) 
+    <https://seer.cancer.gov/about/>.
 Depends: R (>= 3.2.0)
 License: CC0
 Encoding: UTF-8
