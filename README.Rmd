@@ -1,5 +1,7 @@
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -32,8 +34,36 @@ devtools::install_github("jjchern/county.pop")
 
 # Usage
 
+## The package contains four datasets
+
 ```{r}
 library(tibble)
-county.pop::pop
+county.pop::pop_since_1969
+
+county.pop::pop_since_1969_adjusted
+
+county.pop::pop_since_1990
+
+county.pop::pop_since_1990_adjusted
 ```
 
+The population counts are usually based on July 1 populations. The two adjusted versions take into account the changes in population due to hurricanes Katrina and Rita.
+
+All four data sets provide total population counts at the county-year level, as well as population counts by 
+
+- race (and ethnicity):
+    - `pop_since_1969`: black, other, white
+    - `pop_since_1990`: Hispanic, non-Hispanic black, non-Hispanic other, and non-Hispanic white
+- age groups (0-18, 19-44, 45-64, 65-85+), and 
+- gender (female and male).
+
+## New and Deleted Counties are Documented Properly
+
+For example, Broomfield County, Colorado (08014) are created on November 15, 2001 (https://www.census.gov/geo/reference/county-changes.html).
+
+```{r}
+library(tidyverse)
+county.pop::pop_since_1990 %>% 
+    filter(county_fips == "08014") %>% 
+    distinct(year)
+```

@@ -77,28 +77,138 @@
 <a href="#installation" class="anchor"></a>Installation</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
 devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"jjchern/county.pop"</span>)
+
 <span class="co"># To uninstall the package, use:</span>
 <span class="co"># remove.packages("county.pop")</span></code></pre></div>
 </div>
 <div id="usage" class="section level1">
 <h1 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h1>
+<div id="the-package-contains-four-datasets" class="section level2">
+<h2 class="hasAnchor">
+<a href="#the-package-contains-four-datasets" class="anchor"></a>The package contains four datasets</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tibble)
-county.pop<span class="op">::</span>pop
-<span class="co">#&gt; # A tibble: 149,766 x 5</span>
-<span class="co">#&gt;    state_fips  usps county_fips  year   pop</span>
-<span class="co">#&gt;         &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt; &lt;int&gt;</span>
-<span class="co">#&gt;  1         01    AL       01001  1969 23819</span>
-<span class="co">#&gt;  2         01    AL       01001  1970 24661</span>
-<span class="co">#&gt;  3         01    AL       01001  1971 25503</span>
-<span class="co">#&gt;  4         01    AL       01001  1972 27156</span>
-<span class="co">#&gt;  5         01    AL       01001  1973 28453</span>
-<span class="co">#&gt;  6         01    AL       01001  1974 29261</span>
-<span class="co">#&gt;  7         01    AL       01001  1975 29716</span>
-<span class="co">#&gt;  8         01    AL       01001  1976 29892</span>
-<span class="co">#&gt;  9         01    AL       01001  1977 30457</span>
-<span class="co">#&gt; 10         01    AL       01001  1978 30879</span>
-<span class="co">#&gt; # ... with 149,756 more rows</span></code></pre></div>
+county.pop<span class="op">::</span>pop_since_<span class="dv">1969</span>
+<span class="co">#&gt; # A tibble: 149,765 x 15</span>
+<span class="co">#&gt;    state_fips usps  state   county_fips  year   pop black other white</span>
+<span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span>
+<span class="co">#&gt;  1 01         AL    Alabama 01001        1969 23819  6879    19 16921</span>
+<span class="co">#&gt;  2 01         AL    Alabama 01001        1970 24661  6914    27 17720</span>
+<span class="co">#&gt;  3 01         AL    Alabama 01001        1971 25503  6948    36 18519</span>
+<span class="co">#&gt;  4 01         AL    Alabama 01001        1972 27156  7196    50 19910</span>
+<span class="co">#&gt;  5 01         AL    Alabama 01001        1973 28453  7352    62 21039</span>
+<span class="co">#&gt;  6 01         AL    Alabama 01001        1974 29261  7344    75 21842</span>
+<span class="co">#&gt;  7 01         AL    Alabama 01001        1975 29716  7294    83 22339</span>
+<span class="co">#&gt;  8 01         AL    Alabama 01001        1976 29892  7153    96 22643</span>
+<span class="co">#&gt;  9 01         AL    Alabama 01001        1977 30457  7145   107 23205</span>
+<span class="co">#&gt; 10 01         AL    Alabama 01001        1978 30879  7089   118 23672</span>
+<span class="co">#&gt; # ... with 149,755 more rows, and 6 more variables: age_1_18 &lt;int&gt;,</span>
+<span class="co">#&gt; #   age_19_44 &lt;int&gt;, age_45_64 &lt;int&gt;, age_65_85p &lt;int&gt;, female &lt;int&gt;,</span>
+<span class="co">#&gt; #   male &lt;int&gt;</span>
+
+county.pop<span class="op">::</span>pop_since_1969_adjusted
+<span class="co">#&gt; # A tibble: 149,766 x 15</span>
+<span class="co">#&gt;    state_fips usps  state   county_fips  year   pop black other white</span>
+<span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span>
+<span class="co">#&gt;  1 01         AL    Alabama 01001        1969 23819  6879    19 16921</span>
+<span class="co">#&gt;  2 01         AL    Alabama 01001        1970 24661  6914    27 17720</span>
+<span class="co">#&gt;  3 01         AL    Alabama 01001        1971 25503  6948    36 18519</span>
+<span class="co">#&gt;  4 01         AL    Alabama 01001        1972 27156  7196    50 19910</span>
+<span class="co">#&gt;  5 01         AL    Alabama 01001        1973 28453  7352    62 21039</span>
+<span class="co">#&gt;  6 01         AL    Alabama 01001        1974 29261  7344    75 21842</span>
+<span class="co">#&gt;  7 01         AL    Alabama 01001        1975 29716  7294    83 22339</span>
+<span class="co">#&gt;  8 01         AL    Alabama 01001        1976 29892  7153    96 22643</span>
+<span class="co">#&gt;  9 01         AL    Alabama 01001        1977 30457  7145   107 23205</span>
+<span class="co">#&gt; 10 01         AL    Alabama 01001        1978 30879  7089   118 23672</span>
+<span class="co">#&gt; # ... with 149,756 more rows, and 6 more variables: age_1_18 &lt;int&gt;,</span>
+<span class="co">#&gt; #   age_19_44 &lt;int&gt;, age_45_64 &lt;int&gt;, age_65_85p &lt;int&gt;, female &lt;int&gt;,</span>
+<span class="co">#&gt; #   male &lt;int&gt;</span>
+
+county.pop<span class="op">::</span>pop_since_<span class="dv">1990</span>
+<span class="co">#&gt; # A tibble: 84,718 x 16</span>
+<span class="co">#&gt;    state_fips usps  state  county_fips  year   pop  hisp  nh_b  nh_o  nh_w</span>
+<span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span>
+<span class="co">#&gt;  1 01         AL    Alaba… 01001        1990 34353   213  6817   189 27134</span>
+<span class="co">#&gt;  2 01         AL    Alaba… 01001        1991 35010   227  6823   204 27756</span>
+<span class="co">#&gt;  3 01         AL    Alaba… 01001        1992 35985   245  6920   225 28595</span>
+<span class="co">#&gt;  4 01         AL    Alaba… 01001        1993 36953   264  7017   241 29431</span>
+<span class="co">#&gt;  5 01         AL    Alaba… 01001        1994 38186   305  7155   262 30464</span>
+<span class="co">#&gt;  6 01         AL    Alaba… 01001        1995 39112   332  7242   282 31256</span>
+<span class="co">#&gt;  7 01         AL    Alaba… 01001        1996 40207   382  7319   308 32198</span>
+<span class="co">#&gt;  8 01         AL    Alaba… 01001        1997 41238   439  7415   335 33049</span>
+<span class="co">#&gt;  9 01         AL    Alaba… 01001        1998 42106   479  7451   353 33823</span>
+<span class="co">#&gt; 10 01         AL    Alaba… 01001        1999 42963   550  7498   384 34531</span>
+<span class="co">#&gt; # ... with 84,708 more rows, and 6 more variables: age_1_18 &lt;int&gt;,</span>
+<span class="co">#&gt; #   age_19_44 &lt;int&gt;, age_45_64 &lt;int&gt;, age_65_85p &lt;int&gt;, female &lt;int&gt;,</span>
+<span class="co">#&gt; #   male &lt;int&gt;</span>
+
+county.pop<span class="op">::</span>pop_since_1990_adjusted
+<span class="co">#&gt; # A tibble: 84,719 x 16</span>
+<span class="co">#&gt;    state_fips usps  state  county_fips  year   pop  hisp  nh_b  nh_o  nh_w</span>
+<span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span>
+<span class="co">#&gt;  1 01         AL    Alaba… 01001        1990 34353   213  6817   189 27134</span>
+<span class="co">#&gt;  2 01         AL    Alaba… 01001        1991 35010   227  6823   204 27756</span>
+<span class="co">#&gt;  3 01         AL    Alaba… 01001        1992 35985   245  6920   225 28595</span>
+<span class="co">#&gt;  4 01         AL    Alaba… 01001        1993 36953   264  7017   241 29431</span>
+<span class="co">#&gt;  5 01         AL    Alaba… 01001        1994 38186   305  7155   262 30464</span>
+<span class="co">#&gt;  6 01         AL    Alaba… 01001        1995 39112   332  7242   282 31256</span>
+<span class="co">#&gt;  7 01         AL    Alaba… 01001        1996 40207   382  7319   308 32198</span>
+<span class="co">#&gt;  8 01         AL    Alaba… 01001        1997 41238   439  7415   335 33049</span>
+<span class="co">#&gt;  9 01         AL    Alaba… 01001        1998 42106   479  7451   353 33823</span>
+<span class="co">#&gt; 10 01         AL    Alaba… 01001        1999 42963   550  7498   384 34531</span>
+<span class="co">#&gt; # ... with 84,709 more rows, and 6 more variables: age_1_18 &lt;int&gt;,</span>
+<span class="co">#&gt; #   age_19_44 &lt;int&gt;, age_45_64 &lt;int&gt;, age_65_85p &lt;int&gt;, female &lt;int&gt;,</span>
+<span class="co">#&gt; #   male &lt;int&gt;</span></code></pre></div>
+<p>The population counts are usually based on July 1 populations. The two adjusted versions take into account the changes in population due to hurricanes Katrina and Rita.</p>
+<p>All four data sets provide total population counts at the county-year level, as well as population counts by</p>
+<ul>
+<li>race (and ethnicity):
+<ul>
+<li>
+<code>pop_since_1969</code>: black, other, white</li>
+<li>
+<code>pop_since_1990</code>: Hispanic, non-Hispanic black, non-Hispanic other, and non-Hispanic white</li>
+</ul>
+</li>
+<li>age groups (0-18, 19-44, 45-64, 65-85+), and</li>
+<li>gender (female and male).</li>
+</ul>
+</div>
+<div id="new-and-deleted-counties-are-documented-properly" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-and-deleted-counties-are-documented-properly" class="anchor"></a>New and Deleted Counties are Documented Properly</h2>
+<p>For example, Broomfield County, Colorado (08014) are created on November 15, 2001 (<a href="https://www.census.gov/geo/reference/county-changes.html" class="uri">https://www.census.gov/geo/reference/county-changes.html</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="co">#&gt; ── Attaching packages ────────────────────────────────────────── tidyverse 1.2.1 ──</span>
+<span class="co">#&gt; ✔ ggplot2 2.2.1          ✔ purrr   0.2.4     </span>
+<span class="co">#&gt; ✔ tidyr   0.8.0          ✔ dplyr   0.7.4     </span>
+<span class="co">#&gt; ✔ readr   1.1.1.9000     ✔ stringr 1.2.0     </span>
+<span class="co">#&gt; ✔ ggplot2 2.2.1          ✔ forcats 0.2.0</span>
+<span class="co">#&gt; ── Conflicts ───────────────────────────────────────────── tidyverse_conflicts() ──</span>
+<span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span>
+<span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span>
+county.pop<span class="op">::</span>pop_since_<span class="dv">1990</span> <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">filter</span>(county_fips <span class="op">==</span><span class="st"> "08014"</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">distinct</span>(year)
+<span class="co">#&gt; # A tibble: 15 x 1</span>
+<span class="co">#&gt;     year</span>
+<span class="co">#&gt;    &lt;dbl&gt;</span>
+<span class="co">#&gt;  1  2002</span>
+<span class="co">#&gt;  2  2003</span>
+<span class="co">#&gt;  3  2004</span>
+<span class="co">#&gt;  4  2005</span>
+<span class="co">#&gt;  5  2006</span>
+<span class="co">#&gt;  6  2007</span>
+<span class="co">#&gt;  7  2008</span>
+<span class="co">#&gt;  8  2009</span>
+<span class="co">#&gt;  9  2010</span>
+<span class="co">#&gt; 10  2011</span>
+<span class="co">#&gt; 11  2012</span>
+<span class="co">#&gt; 12  2013</span>
+<span class="co">#&gt; 13  2014</span>
+<span class="co">#&gt; 14  2015</span>
+<span class="co">#&gt; 15  2016</span></code></pre></div>
+</div>
 </div>
 </div>
   </div>
@@ -116,7 +226,8 @@ county.pop<span class="op">::</span>pop
 <p>CC0</p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>JJ Chen <br><small class="roles"> Author, maintainer </small> </li>
+<li>JJ Chen <br><small class="roles"> Author, maintainer </small> <br><small>(0000-0001-8482-8398)</small>
+</li>
 </ul>
 <h2>Dev status</h2>
 <ul class="list-unstyled">

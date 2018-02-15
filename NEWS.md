@@ -1,4 +1,9 @@
 
+# county.pop 0.0.4
+
+* Add both unadjusted and adjusted version of raw files
+* Add population counts by race, gender, and age groups
+
 # county.pop 0.0.3
 
 * Another Trivial patch

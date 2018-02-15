@@ -1,6 +1,6 @@
 Package: county.pop
 Title: U.S. County-Level Population Estimates
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: c(person("JJ", "Chen", email = "jiajia.chern@gmail.com", 
              role = c("aut", "cre"),
              comment = c(ORCID = "0000-0001-8482-8398")))
