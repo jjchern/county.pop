@@ -146,3 +146,8 @@ county.pop::pop_since_1990 %>%
 #> 14  2015
 #> 15  2016
 ```
+
+Demographic Shifts
+------------------
+
+<img src="man/figures/README-age_65p-1.png" width="100%" />
