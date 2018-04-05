@@ -6,10 +6,11 @@ output: github_document
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+    cache = TRUE,
+    collapse = TRUE,
+    comment = "#>",
+    fig.path = "man/figures/README-",
+    out.width = "100%"
 )
 ```
 
@@ -18,14 +19,15 @@ knitr::opts_chunk$set(
 
 # About `county.pop`
 
-The package stores U.S. annual county-level population estimates (1969-2016) from [SEER](https://seer.cancer.gov/popdata/download.html). The dataset is unbalanced: 
+The package stores U.S. annual county-level population estimates (1969-2016) from [SEER](https://seer.cancer.gov/popdata/download.html).
+The dataset is unbalanced: 
 certain counties do not have population estimates for all the years.
 
 # Installation
 
 ```R
 # install.packages("devtools")
-devtools::install_github("jjchern/county.pop")
+devtools::install_github("jjchern/county.pop@v0.0.4")
 
 # To uninstall the package, use:
 # remove.packages("county.pop")
@@ -65,6 +67,14 @@ library(tidyverse)
 county.pop::pop_since_1990 %>% 
     filter(county_fips == "08014") %>% 
     distinct(year)
+```
+
+## State-Level Population Can be Aggregated Easily
+
+```{r}
+county.pop::pop_since_1990 %>% 
+    group_by(usps, year) %>% 
+    summarise(state_pop = sum(pop))
 ```
 
 ## Demographic Shifts
